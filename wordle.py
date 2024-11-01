@@ -34,7 +34,7 @@ class wordle_tools():
                         print(colored(wordle_matrix[a][b],'green'),end="")      
             print()    
 
-    def letter_matching(self,user_input):
+   def letter_matching(self):
         #Find all letters that are guessed correctly, incorrectly and in wrong position. 
         #Marks the letters in a specific fashion within the wordle board matrix so they can be mapped 
         #to speficic colour when printed to screen later on with the print_wordle() function.
@@ -43,48 +43,47 @@ class wordle_tools():
         #Lowercase letters - Exist in the word but in the wrong place
         #lowercase letters prefixed with a dot - Dont exist in the word
 
-                #Look for letters in the correct places
                 for a in range(len(wordle)):
-                    if user_input[a]==wordle[a]:  
+                    if guess[a]==wordle[a]:  
                         #Letter guessed correctly
-                        wordle_matrix[attempt][a]=user_input[a].upper()+" "
+                        wordle_matrix[attempt][a]=guess[a].upper()+" "
 
-                #Look for letters in the wrong place but are still used in the word
+                # Look for letters in the wrong place but are still used in the word
                 for a in range(len(wordle)):
-                    #Checks letters that haven't been guessed correctly
+                    #Checks letters that haven't been gussed correctly
                     if wordle_matrix[attempt][a]=='- ':
                         #If letter exists somewhere else in word...
-                        if user_input[a] in wordle:
+                        if guess[a] in wordle:
                             #...Make sure there is still a requirement to find this letter e.g havent found all the ocurrences of the letter
                             wordle_formatted=str(wordle_matrix[attempt]).lower()
-                            if wordle_formatted.count(user_input[a]) < wordle.count(user_input[a].lower()):
-                                wordle_matrix[attempt][a]=user_input[a].lower()+" "
-                            #If all occurences have been found then mark as incorrectly guessed letter
+                            if wordle_formatted.count(guess[a]) < wordle.count(guess[a].lower()):
+                                wordle_matrix[attempt][a]=guess[a].lower()+" "
+                            #If all occurences have been found then mark as incorrect gussed letter
                             else:
-                                wordle_matrix[attempt][a]="."+user_input[a].lower()+" "        
+                                wordle_matrix[attempt][a]="."+guess[a].lower()+" "        
                         else:
                             #Letter not in wordle word
-                            wordle_matrix[attempt][a]="."+user_input[a].lower()+" "               
+                            wordle_matrix[attempt][a]="."+guess[a].lower()+" "               
                 print()
-        
-    def wrong_letters(self,user_input):
+
+    def wrong_letters(self):
         #Updates a string containing all letters from users guesses that were not in the wordle word
         global bad_letters
         
         for a in range(len(wordle)):
-            if user_input[a] not in wordle: 
+            if guess[a] not in wordle: 
                 if guess[a] not in bad_letters: 
-                    bad_letters+=user_input[a]+" "
-  
-    def validation(self,user_input):
-        #Raises custom exception if not a valid word
-        if user_input.isnumeric():
-            raise validation_error("No numbers allowed")
-        elif(len(user_input)< 5):
-            raise validation_error("To short")
-        elif user_input not in wordle_dictionary:
-            raise validation_error("Not in wordle dictionary")
+                    bad_letters+=guess[a]+" "
 
+    def validation(self):
+        #Raises custom exception if not a valid word
+        if guess.isnumeric():
+            raise validation_error("No numbers allowed")
+        elif(len(guess)< 5):
+            raise validation_error("To short")
+        elif guess not in wordle_dictionary:
+            raise validation_error("Not in wordle dictionary")
+            
 class validation_error(Exception):
         def __init__(self,err_message):
             self.message=err_message
