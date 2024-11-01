@@ -174,16 +174,6 @@ while(wordle_turn):
             #Decide message to display when game finished
             wordle_game.finish_message()
             
-            #Decide message to display when game finished
-            if guess == wordle:
-                final_message="\nCORRECT! " +praise[attempt]+"\n"
-                attempt=6
-            elif attempt == 5:
-                final_message="\nUnlucky, word was "+ wordle.upper()+"\n"
-                attempt=6
-            else:
-                attempt+=1
-
     #Put previous Wordle word into blacklist so it wont be used again
     used_words.append(wordle)
 
