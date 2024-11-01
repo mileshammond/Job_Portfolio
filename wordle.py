@@ -148,7 +148,7 @@ while(wordle_turn):
             #Check how the users guess matches the chosen wordle word
             wordle_game.letter_matching(guess)
         
-            #Display all letters from users guseses that were not in the wordle word
+            #Display all letters from users guesses that were not in the wordle word
             for a in range(len(wordle)):
                 if guess[a] not in wordle: 
                     if guess[a] not in bad_letters: 
