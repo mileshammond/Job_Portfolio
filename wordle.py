@@ -47,7 +47,7 @@ class wordle_tools():
 
                 # Look for letters in the wrong place but are still used in the word
                 for a in range(len(wordle)):
-                    #Checks letters that haven't been gussed correctly
+                    #Checks letters that haven't been guessed correctly
                     if wordle_matrix[attempt][a]=='- ':
                         #If letter exists somewhere else in word...
                         if user_input[a] in wordle:
@@ -55,7 +55,7 @@ class wordle_tools():
                             wordle_formatted=str(wordle_matrix[attempt]).lower()
                             if wordle_formatted.count(user_input[a]) < wordle.count(user_input[a].lower()):
                                 wordle_matrix[attempt][a]=user_input[a].lower()+" "
-                            #If all occurences have been found then mark as incorrect gussed letter
+                            #If all occurences have been found then mark as incorrect guessed letter
                             else:
                                 wordle_matrix[attempt][a]="."+user_input[a].lower()+" "        
                         else:
