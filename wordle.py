@@ -66,7 +66,16 @@ class wordle_tools():
                             #Letter not in wordle word
                             wordle_matrix[attempt][a]="."+user_input[a].lower()+" "               
                 print()
- 
+        
+    def wrong_letters(self,user_input):
+        #Updates a string containing all letters from users guesses that were not in the wordle word
+        global bad_letters
+        
+        for a in range(len(wordle)):
+            if user_input[a] not in wordle: 
+                if guess[a] not in bad_letters: 
+                    bad_letters+=user_input[a]+" "
+  
     def validation(self,user_input):
         #Raises custom exception if not a valid word
         if user_input.isnumeric():
@@ -147,12 +156,9 @@ while(wordle_turn):
 
             #Check how the users guess matches the chosen wordle word
             wordle_game.letter_matching(guess)
-        
+
             #Gathers all letters from users guesses that were not in the wordle word
-            for a in range(len(wordle)):
-                if guess[a] not in wordle: 
-                    if guess[a] not in bad_letters: 
-                        bad_letters+=guess[a]+" "
+            wordle_game.wrong_letters(guess)
             
             #Decide message to display when game finished
             if guess == wordle:
