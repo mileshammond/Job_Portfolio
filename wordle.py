@@ -75,6 +75,18 @@ class wordle_tools():
                 if guess[a] not in bad_letters: 
                     bad_letters+=guess[a]+" "
 
+    def finish_message(self):
+        #Decide message to display when game finished
+        global final_message,attempt
+        if guess == wordle:
+            final_message="\nCORRECT! " +praise[attempt]+"\n"
+            attempt=6
+        elif attempt == 5:
+            final_message="\nUnlucky, word was "+ wordle.upper()+"\n"
+            attempt=6
+        else:
+            attempt+=1
+
     def validation(self):
         #Raises custom exception if not a valid word
         if guess.isnumeric():
@@ -158,6 +170,9 @@ while(wordle_turn):
 
             #Gathers all letters from users guesses that were not in the wordle word
             wordle_game.wrong_letters(guess)
+
+            #Decide message to display when game finished
+            wordle_game.finish_message()
             
             #Decide message to display when game finished
             if guess == wordle:
