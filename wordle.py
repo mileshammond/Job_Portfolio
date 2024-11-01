@@ -1,3 +1,6 @@
+#Terminal version of the popular word guessing game. Six Chances to guess the five letter word.
+#Database has over 12,000 words. Play the game as many times as you like until the dictionary is exhausted.
+
 from os import system
 from time import sleep
 from random import randint
@@ -81,7 +84,7 @@ class validation_error(Exception):
         def error(self):
             return self.message
 
-# Creating list of wordle dictionary
+# Creating a wordle dictionary in the form of a list using a text file containing 12972 valid words
 with open("C:\\Users\\miles\\OneDrive\\Desktop\\Python\\Progs\\letter-words.txt", 'r') as file:
     wordle_dictionary = file.read().splitlines()
 
