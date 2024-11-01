@@ -75,8 +75,6 @@ class wordle_tools():
             raise validation_error("To short")
         elif user_input not in wordle_dictionary:
             raise validation_error("Not in wordle dictionary")
-        elif len(user_input) == 5:
-            return False  
 
 class validation_error(Exception):
         def __init__(self,err_message):
@@ -144,6 +142,8 @@ while(wordle_turn):
                     print(f"\n{err}")
                     sleep(1.5)
                     guess_input=True
+                else:
+                    guess_input=False
 
             #Check how the users guess matches the chosen wordle word
             wordle_game.letter_matching(guess)
