@@ -156,7 +156,7 @@ while(wordle_turn):
 
                 #Invokes function to check if users guess is a valid word (e.g word in the dictionary, 5 letters etc) 
                 try:
-                    guess_input=wordle_game.validation(guess)
+                    guess_input=wordle_game.validation()
                 except validation_error as err:
                     #Custom exception displayed when guess isn't a valid word
                     print(f"\n{err}")
@@ -166,10 +166,10 @@ while(wordle_turn):
                     guess_input=False
 
             #Check how the users guess matches the chosen wordle word
-            wordle_game.letter_matching(guess)
+            wordle_game.letter_matching()
 
             #Gathers all letters from users guesses that were not in the wordle word
-            wordle_game.wrong_letters(guess)
+            wordle_game.wrong_letters()
 
             #Decide message to display when game finished
             wordle_game.finish_message()
