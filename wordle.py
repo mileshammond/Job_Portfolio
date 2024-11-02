@@ -38,7 +38,7 @@ class wordle_tools():
         #Find all letters that are guessed correctly, incorrectly and in wrong position. 
         #Marks the letters in a specific fashion within the wordle board matrix so they can be mapped 
         #to speficic colour when printed to screen later on with the print_wordle() function.
-        #
+        
         #Uppercase letters - Guessed correctly
         #Lowercase letters - Exist in the word but in the wrong place
         #lowercase letters prefixed with a dot - Dont exist in the word
