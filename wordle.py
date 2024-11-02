@@ -58,7 +58,7 @@ class wordle_tools():
                             wordle_formatted=str(wordle_matrix[attempt]).lower()
                             if wordle_formatted.count(guess[a]) < wordle.count(guess[a].lower()):
                                 wordle_matrix[attempt][a]=guess[a].lower()+" "
-                            #If all occurences have been found then mark as incorrect gussed letter
+                            #If all occurences have been found then mark as incorrect guessed letter
                             else:
                                 wordle_matrix[attempt][a]="."+guess[a].lower()+" "        
                         else:
