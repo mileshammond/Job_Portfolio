@@ -151,7 +151,7 @@ while(wordle_turn):
                     print(f"\nBad letters: {bad_letters.upper()}")
             
                 #User enters Wordle guess
-                guess=input("\n\nPlease enter guess "+str(attempt+1)+":")
+                guess=input(f"\n\nPlease enter guess {attempt+1}:")
                 guess=guess.lower()
 
                 #Invokes function to check if users guess is a valid word (e.g word in the dictionary, 5 letters etc) 
