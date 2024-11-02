@@ -179,7 +179,7 @@ while(wordle_turn):
 
     #..Play again section
 
-    #If there are words in the wordle dictionary yet to be guseed then user is given option to play again
+    #If there are words in the wordle dictionary yet to be guessed then user is given option to play again
     if wordle_dict_len == len(used_words):
         print("You have exhausted the wordle dictionary!\n")
         wordle_turn=False
