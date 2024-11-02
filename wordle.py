@@ -139,7 +139,7 @@ while(wordle_turn):
             wordle_game.print_wordle() #Display board of previous Wordle guesses   
             print(final_message)
             loop=False
-        #Otherwise current game not finished, continue playing 
+        #..Otherwise current game not finished, continue playing 
         else:      
             guess_input=True    
 
@@ -176,7 +176,7 @@ while(wordle_turn):
     #Put previous Wordle word into blacklist so it wont be used again
     used_words.append(wordle)
 
-    #..Play again section
+    #Play again section
 
     #If there are words in the wordle dictionary yet to be guessed then user is given option to play again
     if wordle_dict_len == len(used_words):
