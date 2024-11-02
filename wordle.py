@@ -132,7 +132,7 @@ while(wordle_turn):
     #Generate object for the class that contains the wordle tool set
     wordle_game=wordle_tools()
 
-    #Main part of program to play Wordle game
+    ########################### Main part of program to play Wordle game ###########################
     while(loop):
         #If wordle game has finished display results and jump to section for playing another game..
         if attempt == 6:
