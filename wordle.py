@@ -139,7 +139,7 @@ while(wordle_turn):
             wordle_game.print_wordle() #Display board of previous Wordle guesses   
             print(final_message)
             loop=False
-        #Current game not finished, continue playing 
+        #Otherwise current game not finished, continue playing 
         else:      
             guess_input=True    
 
